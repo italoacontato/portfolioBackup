@@ -1,0 +1,292 @@
+/* ESTILOS UNIVERSAIS */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* VARIÁVEIS */
+
+:root{
+    --corAmarela:#FBCA2D;  
+    --corAzul:#17043B;
+    --corBranca:#ffffff;
+    --corRoxoEscuro: #562390;
+    --corRoxoClaro:#9e6de7;
+    --corCinza:#786f6f;
+    --corRoxoPastel:#6924b8;
+    --corRoxoEscuro1: #170829;
+}
+
+body{
+    background-color: var(--corRoxoPastel);
+}
+
+/* ESTILOS UNIVERSAIS */
+
+button{
+    background-color: transparent;
+    border: 2px solid var(--corBranca);
+    border-radius: 8px;
+    color: var(--corBranca);
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: var(--corRoxoClaro);
+    color: var(--corAzul);
+    font-size: 1.1rem;
+    transition: 0.5s;
+
+}
+
+h1.titulo-section{
+    font-size: 4rem;
+    color: var(--corBranca)
+}
+
+h1.titulo-section span{
+    color: var(--corRoxoClaro);
+}
+
+.interface{
+    max-width: 1380px;
+    padding: 0 4%;
+    margin: 0 auto;
+}
+
+/* ESTILO DO CABEÇALHO */
+
+header{
+    background-color: transparent;
+    padding: 16px 0;
+    position: fixed;
+    width: 100%;
+}
+
+header > .interface{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logotipo-cabecalho img{
+    max-width: 180px;
+
+}
+
+header nav.menu-desktop ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 56px;
+}
+
+header nav.menu-desktop a{
+    color: var(--corBranca);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: 0.5s;
+}
+
+header nav.menu-desktop a:hover{
+    color:var(--corRoxoClaro);
+}
+
+header nav.menu-desktop button{
+    width: 144px;
+    height: 48px;
+}
+
+/* ESTILO DA HERO */
+
+section.hero{
+    background-image: linear-gradient(to left, var(--corRoxoEscuro) 70%, var(--corRoxoEscuro) 10%);
+    padding-top: 0px;
+    padding: 50px 0;
+}
+
+
+.hero > .interface{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:90px;
+    padding: 0 10px;
+
+}
+
+.hero .img-hero{
+    line-height: 0;
+   
+}
+
+
+.hero .txt-hero{
+    padding-top: 80px;
+}
+
+.hero .txt-hero h1{
+    font-size: 3rem;
+    color: var(--corBranca);
+    font-weight: 300;
+    word-spacing: 6px;
+    
+
+}
+
+.hero .txt-hero h1 span{
+    color: var(--corRoxoClaro);
+    display: block;
+    font-weight: 800;
+    font-size: 4rem;
+
+}
+
+.hero .txt-hero p{
+    color: var(--corBranca);
+    line-height: 1.6;
+    font-size: 1.2rem;
+    margin: 24px 0;
+    word-spacing: 1.6px;
+    text-align: justify;
+
+}
+
+.hero .txt-hero button{
+    width: 200px;
+    height: 48px;
+}
+
+
+/* ESTILO DA SEÇÃO HABILIDADES */
+
+section.skills{
+    padding: 80px 0;
+    background-color: #3B1467;
+}
+
+.skills .titulo-section{
+    color: #ffffff;
+    text-align: justify;
+    padding: 10px 20px;
+}
+
+.skills .titulo-section span{
+    color: #a26ae2;
+}
+
+/* ESTILO DO GRID */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: #562390;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+}
+
+.grid-item:hover {
+    background-color: #7b5da7;
+    transform: scale(1.05); /* aumenta um pouco o tamanho */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* adiciona sombra */
+}
+
+
+/* Modais */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #9e6de7c8;
+
+}
+
+
+.modal-content {
+    background-color: #562390;
+    margin: 15% auto; /* Centraliza vertical e horizontal */
+    padding: 20px;
+    border: 0;
+    width: 600px;
+    height: 600px;
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+}
+
+
+.close {
+    color: #a57ee3;
+    position: absolute;
+    top: 4px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+.close:hover {
+    color: #e1cdff;
+    transform: scale(1.05); /* aumenta um pouco o tamanho */
+}
+
+.skills .btn-contato{
+    text-align: center;
+}
+
+.skills .btn-contato button{
+    width: 200px;
+    height: 48px;
+
+}
+
+/* ESTILO DA SEÇÃO SOBRE MIM */
+
+section.sobre-mim{
+    padding: 50px 0;
+}
+
+.sobre-mim > .interface{ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:96px;
+}
+
+.sobre-mim .txt-sobre p{
+    color: var(--corBranca);
+    text-align: justify;
+    line-height: 1.6;
+    margin: 24px 0;
+}
+
+.sobre-mim .btn-redes button{
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    margin-right: 8px;
+
+}
+
+
