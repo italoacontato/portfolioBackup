@@ -27,4 +27,22 @@ window.addEventListener('click', (event) => {
     }
 });
 
+// MOSTRAR MAIS
+
+const btnMostrarMais = document.querySelector('#btn_mostrar_mais');
+const portfolioContainer = document.querySelector('#portfolio-container');
+
+btnMostrarMais.addEventListener('click' , ()=>{
+    portfolioContainer.classList.toggle('mostrar');
+
+    if(portfolioContainer.classList.contains('mostrar')){
+        btnMostrarMais.innerText = 'Mostrar menos';
+
+    }
+    else{
+        btnMostrarMais.innerText = 'Mostrar mais';
+    }
+
+});
+
 
