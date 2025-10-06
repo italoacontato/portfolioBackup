@@ -271,6 +271,7 @@ section.skills{
 
 section.sobre-mim{
     padding: 50px 0;
+    background-color: var(--corRoxoEscuro1);
 }
 
 .sobre-mim > .interface{ 
@@ -443,7 +444,67 @@ footer > .interface{
     color: var(--corBranca);
 }
 
+/* ESTILO DO CONTATO */
 
+section.contato{
+    padding: 80px 0;
+    background-color: var(--corRoxoEscuro);
+}
+
+.contato > .interface{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contato .txt-contato p{
+    color: var(--corBranca);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 11px 0;
+}
+
+.contato .txt-contato p i{
+    font-size: 2rem;
+}
+
+.contato form{
+    width: 50%;
+}
+
+.contato form input , .contato form textarea{
+    width: 100%;
+    padding: 16px 10px;
+    background: transparent;
+    border: 2px solid var(--corRoxoClaro);
+    outline: none;
+    color: var(--corBranca);
+    font-size: 1.1rem;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.contato form textarea{
+    resize: none;
+    height: 150px;
+    color: var(--corBranca);
+}
+
+.contato form .btn-enviar input{
+    border-color: var(--corBranca);
+    transition: .5s;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.contato form .btn-enviar input:hover{
+    background-color: var(--corRoxoClaro);
+    color: var(--corRoxoEscuro);
+    border-color: var(--corRoxoClaro);
+
+}
  
  
  
