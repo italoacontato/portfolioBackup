@@ -1,0 +1,409 @@
+// Seleciona todos os elementos do grid
+const gridItems = document.querySelectorAll('.grid-item');
+
+// Adiciona evento de clique em cada item
+gridItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const modalId = item.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        modal.style.display = "block";
+    });
+});
+
+// Seleciona todos os botões de fechar
+const closeButtons = document.querySelectorAll('.close');
+
+closeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const modal = btn.closest('.modal');
+        modal.style.display = "none";
+    });
+});
+
+// Fecha o modal ao clicar fora do conteúdo
+window.addEventListener('click', (event) => {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+    }
+});
+
+// MOSTRAR MAIS
+
+const btnMostrarMais = document.querySelector('#btn_mostrar_mais');
+const portfolioContainer = document.querySelector('#portfolio-container');
+
+btnMostrarMais.addEventListener('click' , ()=>{
+    portfolioContainer.classList.toggle('mostrar');
+
+    if(portfolioContainer.classList.contains('mostrar')){
+        btnMostrarMais.innerText = 'Mostrar menos';
+
+    }
+    else{
+        btnMostrarMais.innerText = 'Mostrar mais';
+    }
+
+});
+
+
+// MOSTRAR MAIS MODAIS
+const btnMostrarMaisModais = document.querySelector('#btn-mostrar-modais');
+const gridContainer = document.querySelector('#grid-container');
+
+btnMostrarMaisModais.addEventListener('click', () => {
+  gridContainer.classList.toggle('mostrar');
+
+  if (gridContainer.classList.contains('mostrar')) {
+    btnMostrarMaisModais.innerText = 'Mostrar menos';
+  } else {
+    btnMostrarMaisModais.innerText = 'Mostrar mais';
+  }
+});
+
+
+
+
+
+
+// JAVASCRIPT CALENDÁRIO / EVENTOS 
+
+// --- Elementos HTML ---
+const eventosPainel = document.getElementById('eventos-bloco');
+const diaSelecionadoTexto = document.getElementById('dia-selecionado-texto');
+const eventoTexto = document.getElementById('evento-texto');
+const adicionarEventoBtn = document.getElementById('adicionar-evento-btn');
+const listaEventos = document.getElementById('lista-eventos');
+const fecharEventosBtn = document.getElementById('fechar-eventos-btn');
+
+// Elementos do Calendário
+const daysContainer = document.getElementById('days');
+const monthYearDisplay = document.getElementById('month-year');
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+
+// --- Estado da Aplicação ---
+let diaSelecionado = null; 
+let eventosSalvos = JSON.parse(localStorage.getItem('eventosCalendario')) || {};
+let dataAtual = new Date(); // Data usada para a renderização do calendário
+let eventoSendoArrastado = {
+    origemDia: null,
+    origemIndex: null,
+    descricao: null
+};
+
+
+// ------------------------------------------------------------------
+// --- FUNÇÕES DE PERSISTÊNCIA E EVENTOS ---
+// ------------------------------------------------------------------
+
+function salvarEventos() {
+    localStorage.setItem('eventosCalendario', JSON.stringify(eventosSalvos));
+}
+
+function renderizarEventos() {
+    listaEventos.innerHTML = ''; 
+    
+    if (!diaSelecionado) {
+        listaEventos.innerHTML = '<li class="evento-placeholder">Selecione um dia no calendário.</li>';
+        return;
+    }
+
+    const eventosDoDia = eventosSalvos[diaSelecionado] || [];
+
+    if (eventosDoDia.length === 0) {
+        listaEventos.innerHTML = '<li class="evento-placeholder">Nenhum evento para este dia.</li>';
+        return;
+    }
+
+    eventosDoDia.forEach((evento, index) => {
+        const li = document.createElement('li');
+        li.className = 'evento-item';
+        
+        // Configurações para Drag and Drop
+        li.draggable = true; 
+        li.dataset.index = index; 
+        li.addEventListener('dragstart', handleDragStart);
+
+        const spanTexto = document.createElement('span');
+        spanTexto.textContent = evento;
+        li.appendChild(spanTexto);
+
+        const btnExcluir = document.createElement('button');
+        btnExcluir.className = 'excluir-btn';
+        btnExcluir.textContent = 'Excluir';
+        
+        btnExcluir.addEventListener('click', () => {
+            excluirEvento(diaSelecionado, index);
+        });
+        
+        li.appendChild(btnExcluir);
+        listaEventos.appendChild(li);
+    });
+}
+
+function adicionarNovoEvento() {
+    const texto = eventoTexto.value.trim();
+    if (!diaSelecionado || texto === '') return;
+
+    if (!eventosSalvos[diaSelecionado]) {
+        eventosSalvos[diaSelecionado] = [];
+    }
+
+    eventosSalvos[diaSelecionado].push(texto);
+    eventoTexto.value = ''; 
+    adicionarEventoBtn.disabled = true; 
+    salvarEventos();
+    renderizarEventos();
+    
+    // Adiciona a marcação visual (bolinha) ao dia no calendário
+    const diaElement = document.querySelector(`.dia-calendario[data-dia="${diaSelecionado}"]`);
+    if (diaElement) {
+        diaElement.classList.add('com-evento'); 
+    }
+}
+
+function excluirEvento(dia, index) {
+    if (eventosSalvos[dia]) {
+        eventosSalvos[dia].splice(index, 1);
+        
+        if (eventosSalvos[dia].length === 0) {
+            delete eventosSalvos[dia];
+            // Remove a bolinha do dia
+            const diaElement = document.querySelector(`.dia-calendario[data-dia="${dia}"]`);
+            if (diaElement) {
+                diaElement.classList.remove('com-evento');
+            }
+        }
+
+        salvarEventos();
+        renderizarEventos();
+    }
+}
+
+function fecharPainelEventos() {
+    eventosPainel.classList.remove('aberto');
+    
+    // Limpa a seleção visual no calendário
+    document.querySelectorAll('.dia-selecionado').forEach(el => {
+        el.classList.remove('dia-selecionado');
+    });
+    
+    diaSelecionado = null; 
+    renderizarEventos(); // Atualiza a lista para o estado inicial
+}
+
+
+// ------------------------------------------------------------------
+// --- FUNÇÕES DE CALENDÁRIO E INTERFACE ---
+// ------------------------------------------------------------------
+
+function selecionarDia(diaElement) {
+    // 1. Limpa a seleção anterior e marca o novo dia
+    document.querySelectorAll('.dia-selecionado').forEach(el => {
+        el.classList.remove('dia-selecionado');
+    });
+
+    const data = diaElement.dataset.dia;
+    diaSelecionado = data;
+    diaElement.classList.add('dia-selecionado');
+    
+    // 2. Abre o modal lateral
+    eventosPainel.classList.add('aberto');
+    
+    // 3. Atualiza o painel
+    const dataDisplay = new Date(data + 'T00:00:00').toLocaleDateString('pt-BR', { dateStyle: 'long' });
+    diaSelecionadoTexto.textContent = dataDisplay;
+    
+    adicionarEventoBtn.disabled = eventoTexto.value.trim() === ''; 
+    eventoTexto.focus(); 
+    
+    // 4. Carrega e exibe os eventos
+    renderizarEventos();
+}
+
+/**
+ * Função principal que gera os dias do mês e insere no #days.
+ * Também chama o inicializador de listeners após cada renderização.
+ */
+function renderizarCalendario() {
+    daysContainer.innerHTML = ''; 
+
+    const ano = dataAtual.getFullYear();
+    const mes = dataAtual.getMonth();
+    const nomeMes = dataAtual.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+
+    monthYearDisplay.textContent = nomeMes.charAt(0).toUpperCase() + nomeMes.slice(1);
+
+    const primeiroDiaMes = new Date(ano, mes, 1);
+    const ultimoDiaMes = new Date(ano, mes + 1, 0).getDate();
+    const diaSemanaPrimeiro = primeiroDiaMes.getDay(); 
+
+    // Preenche os espaços vazios
+    for (let i = 0; i < diaSemanaPrimeiro; i++) {
+        const emptyDiv = document.createElement('div');
+        daysContainer.appendChild(emptyDiv);
+    }
+
+    // Cria os elementos para cada dia do mês
+    for (let dia = 1; dia <= ultimoDiaMes; dia++) {
+        const diaDiv = document.createElement('div');
+        const dataString = `${ano}-${String(mes + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+        
+        diaDiv.className = 'dia-calendario';
+        diaDiv.textContent = dia;
+        diaDiv.dataset.dia = dataString; // ESSENCIAL: Chave de comunicação!
+
+        // Adiciona a bolinha de evento se houver eventos
+        if (eventosSalvos[dataString] && eventosSalvos[dataString].length > 0) {
+            diaDiv.classList.add('com-evento');
+        }
+
+        // Mantém o dia selecionado marcado (útil ao mudar de mês)
+        if (dataString === diaSelecionado) {
+            diaDiv.classList.add('dia-selecionado');
+        }
+        
+        daysContainer.appendChild(diaDiv);
+    }
+
+    inicializarListenersDoCalendario();
+}
+
+/**
+ * Adiciona todos os listeners (clique e drop) aos novos dias renderizados.
+ */
+function inicializarListenersDoCalendario() {
+    document.querySelectorAll('.dia-calendario').forEach(diaElement => {
+        // Listener de Clique
+        if (!diaElement.dataset.clickListenerAdded) {
+            diaElement.addEventListener('click', () => {
+                selecionarDia(diaElement);
+            });
+            diaElement.dataset.clickListenerAdded = 'true';
+        }
+
+        // Listeners de Drag and Drop
+        if (!diaElement.dataset.dropListenerAdded) {
+            diaElement.addEventListener('dragover', handleDragOver);
+            diaElement.addEventListener('dragenter', handleDragEnter);
+            diaElement.addEventListener('dragleave', handleDragLeave);
+            diaElement.addEventListener('drop', handleDrop);
+            diaElement.addEventListener('dragend', handleDragEnd);
+            diaElement.dataset.dropListenerAdded = 'true';
+        }
+    });
+}
+
+
+// ------------------------------------------------------------------
+// --- FUNÇÕES DE DRAG AND DROP ---
+// ------------------------------------------------------------------
+
+function handleDragStart(e) {
+    e.target.style.opacity = '0.4'; 
+    eventoSendoArrastado.origemDia = diaSelecionado;
+    eventoSendoArrastado.origemIndex = e.target.dataset.index;
+    eventoSendoArrastado.descricao = e.target.querySelector('span').textContent;
+
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', eventoSendoArrastado.descricao); 
+}
+
+function handleDragOver(e) {
+    e.preventDefault(); 
+    e.dataTransfer.dropEffect = 'move';
+    if (e.target.classList.contains('dia-calendario')) {
+        e.target.classList.add('drag-hover');
+    }
+}
+
+function handleDragEnter(e) {
+    if (e.target.classList.contains('dia-calendario')) {
+        e.target.classList.add('drag-hover');
+    }
+}
+
+function handleDragLeave(e) {
+    if (e.target.classList.contains('dia-calendario')) {
+        e.target.classList.remove('drag-hover');
+    }
+}
+
+function handleDrop(e) {
+    e.preventDefault();
+    e.target.classList.remove('drag-hover');
+
+    let diaAlvo = e.target.closest('.dia-calendario');
+    
+    if (diaAlvo) {
+        const destinoDia = diaAlvo.dataset.dia;
+
+        if (destinoDia === eventoSendoArrastado.origemDia) {
+            return; 
+        }
+
+        // 1. Adiciona o evento ao dia de destino
+        if (!eventosSalvos[destinoDia]) {
+            eventosSalvos[destinoDia] = [];
+        }
+        eventosSalvos[destinoDia].push(eventoSendoArrastado.descricao);
+
+        // 2. Remove o evento do dia de origem
+        excluirEvento(eventoSendoArrastado.origemDia, parseInt(eventoSendoArrastado.origemIndex));
+
+        // 3. Atualiza a marcação visual nos dias afetados (bolinha)
+        diaAlvo.classList.add('com-evento'); 
+        
+        // 4. Se o painel estiver aberto no dia de origem, re-renderiza
+        if (diaSelecionado === eventoSendoArrastado.origemDia) {
+            renderizarEventos(); 
+        }
+
+        salvarEventos();
+    }
+}
+
+function handleDragEnd(e) {
+    e.target.style.opacity = '1'; 
+    document.querySelectorAll('.dia-calendario.drag-hover').forEach(el => {
+        el.classList.remove('drag-hover');
+    });
+}
+
+
+// ------------------------------------------------------------------
+// --- LISTENERS E INICIALIZAÇÃO ---
+// ------------------------------------------------------------------
+
+// Listeners de navegação do calendário
+prevButton.addEventListener('click', () => {
+    dataAtual.setMonth(dataAtual.getMonth() - 1);
+    renderizarCalendario();
+});
+
+nextButton.addEventListener('click', () => {
+    dataAtual.setMonth(dataAtual.getMonth() + 1);
+    renderizarCalendario();
+});
+
+// Listeners do Painel Lateral
+adicionarEventoBtn.addEventListener('click', adicionarNovoEvento);
+fecharEventosBtn.addEventListener('click', fecharPainelEventos);
+
+eventoTexto.addEventListener('input', () => {
+    adicionarEventoBtn.disabled = eventoTexto.value.trim() === '' || diaSelecionado === null;
+});
+
+eventoTexto.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey && !adicionarEventoBtn.disabled) {
+        e.preventDefault(); 
+        adicionarNovoEvento();
+    }
+});
+
+
+// Execução Inicial
+window.onload = () => {
+    renderizarCalendario(); 
+    renderizarEventos(); 
+};
