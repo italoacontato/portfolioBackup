@@ -1,0 +1,430 @@
+/* 📱 RESPONSIVIDADE GERAL */
+@media (max-width: 1000px) {
+
+    /* ----- CONTAINER UNIVERSAL ----- */
+    .interface {
+        max-width: 95%;
+        padding: 0 3%;
+    }
+
+    h1.titulo-section {
+        font-size: 2.6rem;
+        /* diminui o tamanho do título */
+        text-align: center;
+    }
+
+    /* ----- CABEÇALHO ----- */
+
+    header nav.menu-desktop {
+        display: none;
+        /* esconde o menu desktop */
+    }
+
+    .btn-menu-mobile {
+        display: block;
+    }
+
+    header .logotipo-cabecalho img {
+        max-width: 140px;
+    }
+
+     /* ESTILO MENU - RESPONSIVO */
+
+    header {
+        background-image: none;
+        background-color: var(--corRoxoEscuro);
+    }
+
+    .menu-desktop {
+        display: none;
+    }
+
+    .btn-menu-mobile,
+    .menu-mobile {
+        display: block;
+    }
+
+
+
+    /* ----- HERO ----- */
+    .hero>.interface {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        gap: 40px;
+    }
+
+    .hero .txt-hero {
+        padding-top: 0;
+    }
+
+    .hero .txt-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero .txt-hero h1 span {
+        font-size: 3rem;
+    }
+
+    .hero .txt-hero p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .hero .img-hero img {
+        width: 80%;
+    }
+
+    /* SEÇÃO BUSCAR REELS */
+
+    .busca .titulo-section {
+
+        display: inline-block;
+        text-align: center;
+
+
+        font-size: 2rem;
+        top: -31px;
+        /* left: 11px; */
+
+    }
+
+    .text-busca {
+    text-align: center;   /* 👉 garante que o filho fique no centro */
+}
+
+
+
+    .filters {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 3 por linha */
+        gap: 10px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+
+
+
+    /* ----- TÓPICOS / GRID ----- */
+
+
+    /* 🔸 Espaçamento geral */
+    section.topicos {
+        padding: 80px 0;
+        height: auto;
+    }
+
+
+    /* 🔸 Título */
+    .topicos .titulo-section {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 10px;
+        top: -87px;
+        left: 14px;
+        position: relative;
+
+    }
+
+
+
+
+    /* 🔸 GRID: de 3 → 2 colunas */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+        padding: 10px;
+        margin-bottom: 30px;
+        margin-top: -20px;
+
+    }
+
+    .grid-item {
+        padding: 25px 0;
+        font-size: 16px;
+    }
+
+    /* 🔸 MODAL */
+    .modal-content {
+        width: 90%;
+        max-width: 400px;
+        padding: 15px;
+    }
+
+    .modal-title {
+        font-size: 1.3em;
+        text-align: center;
+    }
+
+    .modal-desc {
+        font-size: 0.95rem;
+        text-indent: 15px;
+        padding: 0 5px;
+    }
+
+    /* 🔸 Botão de fechar */
+    .close {
+        top: -5px;
+        right: -5px;
+        width: 26px;
+        height: 26px;
+        font-size: 0.9rem;
+    }
+
+    /* 🔸 Botões gerais */
+    .topicos .btn-contato button,
+    .topicos .btn-mostrar-modais button {
+        width: 160px;
+        height: 40px;
+        font-size: 0.95rem;
+    }
+
+
+
+/* === GRID COMO CARROSSEL TOUCH === */
+.grid-container {
+    display: flex;
+    overflow-x: auto;
+    /* 🔹 habilita scroll lateral */
+    overflow-y: hidden;
+    /* 🔹 evita scroll vertical acidental */
+    scroll-snap-type: x mandatory;
+    /* 🔹 trava a rolagem em cada card */
+    -webkit-overflow-scrolling: touch;
+    /* 🔹 ativa o scroll suave no iOS */
+    gap: 20px;
+    padding: 20px;
+    scroll-behavior: smooth;
+    /* 🔹 rolagem fluida */
+}
+
+/* Oculta a barra de rolagem */
+.grid-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Cada card */
+.grid-item {
+    flex: 0 0 300px;
+    /* 🔹 largura fixa do card */
+    scroll-snap-align: start;
+    /* 🔹 “trava” o card na posição inicial */
+    background-color: #562390;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    font-size: 18px;
+    cursor: grab;
+    /* 🔹 indica que é arrastável */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    user-select: none;
+    /* 🔹 impede seleção acidental do texto */
+}
+
+.grid-item:active {
+    cursor: grabbing;
+    /* 🔹 efeito visual de “arrastar” */
+}
+
+.grid-item:hover {
+    background-color: #7b5da7;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+    .grid-item {
+        flex: 0 0 240px;
+        /* 🔹 cards um pouco menores */
+        font-size: 16px;
+        padding: 25px 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    .grid-container {
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .grid-item {
+        flex: 0 0 260px;
+        font-size: 16px;
+        padding: 30px 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .grid-item {
+        flex: 0 0 220px;
+        /* 🔹 cards menores para caber melhor */
+        font-size: 15px;
+        padding: 25px 0;
+    }
+
+    /* Esconde botões em telas pequenas */
+    .carousel-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    .oculto {
+        display: block !important;
+    }
+
+    .btn-mostrar-modais {
+        display: none;
+    }
+}
+
+
+
+/* ----- SOBRE MIM ----- */
+.sobre-mim>.interface {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+.sobre-mim .titulo-section {
+    top: -60px;
+    left: 0;
+    position: relative;
+}
+
+.sobre-mim .txt-sobre p {
+    top: 0;
+    margin-bottom: 28px;
+}
+
+.sobre-mim img {
+    display: none;
+}
+
+/* SEÇÃO SOBRE MIM */
+
+.sobre-mim .titulo-section {
+    font-size: 2rem;
+    top: -35px;
+
+}
+
+/* ----- CONTATO ----- */
+
+section.contato {
+    padding: 30px 0;
+    background-color: var(--corRoxoEscuro);
+
+}
+
+.contato>.interface {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+
+.contato form {
+    width: 100%;
+}
+
+.contato .titulo-section {
+    top: -34px;
+    left: 0;
+    text-align: center;
+    margin-bottom: 10px;
+    bottom: 10px;
+    font-size: 2rem;
+}
+
+.contato .txt-contato h2 {
+    font-size: 2rem;
+    margin-top: 5px;
+    /* ou 5px */
+
+}
+
+/* ----- CALENDÁRIO + EVENTOS ----- */
+.container-principal {
+    flex-direction: column;
+    align-items: center;
+}
+
+.calendario .titulo-section {
+    font-size: 2rem;
+    top: -78px;
+    left: 0.2%;
+
+}
+
+.calendario {
+    min-width: 100%;
+    padding: 15px;
+}
+
+.eventos-painel {
+    display: none;
+    /* oculto */
+    width: 100%;
+    /* ocupa toda a largura quando ativo */
+    margin-top: 15px;
+}
+
+.eventos-painel.aberto {
+    display: block;
+    /* aparece embaixo do calendário */
+    margin-bottom: 70px;
+}
+
+
+.calendar.container {
+    flex-direction: column;
+}
+
+.calendar {
+    width: 100%;
+    max-width: 360px;
+}
+
+.modal {
+    display: none;
+    /* ou visibility: hidden; */
+    position: fixed;
+    /* faz ficar por cima da página */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* fundo escuro */
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ----- FOOTER ----- */
+footer>.interface {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+/* aaaaaaaaaaaaaa */
+
+/* MOSTRAR APENAS UM REEL */
+.reel-card {
+    display: none; /* esconde todos */
+}
+
+.reel-card:first-child {
+    display: block; /* mostra só o primeiro */
+}
+
+}
