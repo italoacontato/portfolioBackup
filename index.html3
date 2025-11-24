@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="https://www.instagram.com/embed.js"></script>
+    <link rel="stylesheet" href="css/responsivo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <title>Projeto</title>
+</head>
+
+<body>
+
+
+    <header>
+
+        <div class="interface">
+
+            <section class="logotipo-cabecalho">
+                <a href="#hero">
+                    <img src="C:\Programas\PORTFOLIO\imagens\leticia_logo (2).png" alt="Logotipo do site">
+                </a>
+            </section>
+
+
+            <nav class="menu-desktop">
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#busca">Reels</a></li> <!--# vazio-->
+                    <li><a href="#topicos">Tópicos</a></li>
+                    <li><a href="#sobre-mim">Sobre mim</a></li>
+                    <li><a href="#calendario">Eventos</a></li>
+                    <li><a href="#contato"><button>Contato</button></a></li>
+                </ul>
+            </nav>
+
+            <div class="btn-menu-mobile" id="btn-menu-mobile">
+                <i class="bi bi-list"></i>
+            </div>
+
+            <nav class="menu-mobile" id="menu-mobile">
+                <i class="bi bi-x-lg"></i>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#busca">Reels</a></li> <!--# vazio-->
+                    <li><a href="#topicos">Tópicos</a></li>
+                    <li><a href="#sobre-mim">Sobre mim</a></li>
+                    <li><a href="#calendario">Eventos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+
+
+    </header>
+
+    <main>
+
+        <!-- SECTION HERO -->
+
+        <section class="hero" id="hero">
+            <div class="interface">
+
+                <div class="img-hero">
+                    <img src="C:\Programas\PORTFOLIO\imagens\leticiaMais.png" alt="foto do profissional">
+                </div>
+
+                <div class="txt-hero">
+                    <h1>PROJETO<span>DRA. LETÍCIA</span></h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit cupiditate dicta nihil quod libero
+                        quisquam harum nisi laudantium amet exercitationem dolorem, similique magnam voluptas dolores
+                        vero fugiat dolore totam nesciunt?</p>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- SECTION BUSCAR -->
+
+        <section class="busca" id="busca">
+            <div class="interface">
+
+                <div class="text-busca">
+                    <h1 class="titulo-section">Reels<span> em Destaque</span></h1>
+
+                </div>
+
+
+                <div class="container">
+
+                    <!-- Barra de busca -->
+                    <div class="search-box">
+                        <input id="searchInput" type="text"
+                            placeholder="Buscar por termos como pega, dor, mastite..." />
+                    </div>
+
+
+
+                    <!-- Filtros -->
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">Todos</button>
+                        <button class="filter-btn" data-filter="tecnicas">Amamentação</button>
+                        <button class="filter-btn" data-filter="dificuldades">Dificuldades</button>
+                        <button class="filter-btn" data-filter="mitos">Mitos e Verdades</button>
+                        <button class="filter-btn" data-filter="saude">Saúde da Mãe</button>
+                         <button class="filter-btn" data-filter="alimentacao">Alimentação</button>
+                    </div>
+
+                    <!-- Grid de Reels -->
+                    <div class="reels-grid" id="reelsGrid">
+
+                        <!-- CARD EXEMPLO 1 -->
+                        <!-- <div class="reel-card" data-category="tecnicas" data-title="Pega correta da amamentação">
+                            <blockquote class="instagram-media"
+                                data-instgrm-permalink="https://www.instagram.com/p/C0nKK76g2RI/?igsh=M3gybmg5NXo4c3c5"
+                                data-instgrm-version="14"></blockquote>
+                            <div class="reel-title">Pega correta da amamentação</div>
+                            <div class="tags">amamentação</div>
+                        </div> -->
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+        <!-- SECTION topicos -->
+
+        <section class="topicos" id="topicos">
+            <div class="interface">
+
+                <h1 class="titulo-section">Tópicos<span> Principais</span></h1>
+
+                <article>
+
+                    <!-- GRID -->
+                    <div class="grid-container" id="grid-container">
+                        <div class="grid-item" data-modal="modal1">Elemento 1</div>
+                        <div class="grid-item" data-modal="modal2">Elemento 2</div>
+                        <div class="grid-item" data-modal="modal3">Elemento 3</div>
+                        <div class="grid-item" data-modal="modal4">Elemento 4</div>
+                        <div class="grid-item" data-modal="modal5">Elemento 5</div>
+                        <div class="grid-item" data-modal="modal6">Elemento 6</div>
+                        <div class="grid-item oculto" data-modal="modal7">Elemento 7</div>
+                        <div class="grid-item oculto" data-modal="modal8">Elemento 8</div>
+                        <div class="grid-item oculto" data-modal="modal9">Elemento 9</div>
+                    </div>
+
+
+                    <!-- Modais -->
+
+                    <!-- MODAL 1 -->
+                    <div class="modal" id="modal1">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="C:\Programas\PORTFOLIO\imagens\amamentacao-foto.jpg" alt="Imagem do Modal1"
+                                class="modal-img">
+                            <h2 class="modal-title">Amamentação</h2>
+                            <div class="modal-body">
+                                <p class="modal-desc">
+                                    A amamentação é um dos momentos mais importantes para o desenvolvimento do bebê e
+                                    para o fortalecimento do vínculo entre mãe e filho. O leite materno é considerado o
+                                    alimento mais completo para os recém-nascidos, pois contém todos os nutrientes,
+                                    vitaminas, proteínas e anticorpos necessários para garantir um crescimento saudável
+                                    nos primeiros meses de vida.
+                                </p>
+
+                                <p class="modal-desc">
+                                    Além de ser natural e econômico, o leite materno protege o bebê contra diversas
+                                    doenças, como infecções respiratórias, diarreia e alergias. Ele também contribui
+                                    para o desenvolvimento do sistema imunológico e para o fortalecimento do vínculo
+                                    afetivo, promovendo segurança e conforto para o bebê.
+                                </p>
+
+                                <p class="modal-desc">
+                                    A Organização Mundial da Saúde (OMS) recomenda que a amamentação seja exclusiva até
+                                    os seis meses de idade, sem a necessidade de oferecer água, chás ou outros
+                                    alimentos. Após esse período, a amamentação deve continuar de forma complementar,
+                                    junto à introdução de novos alimentos, até pelo menos os dois anos de idade.
+                                </p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <a href="https://www.example.com" target="_blank" class="modal-link">Acessar Reels</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODAL 2 -->
+                    <div class="modal" id="modal2">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="C:\Programas\PORTFOLIO\imagens\2151495292.jpg" alt="Imagem do Modal2"
+                                class="modal-img">
+                            <h2 class="modal-title">Título do Modal</h2>
+                            <div class="modal-body">
+                                <p class="modal-desc">
+                                    Este é um exemplo de descrição dentro do modal.
+                                    O conteúdo pode ter qualquer tamanho — pequeno ou grande — e o modal se ajustará
+                                    automaticamente.
+                                    Se o texto for muito longo, uma rolagem interna aparecerá, sem mover o botão de
+                                    link.
+                                    <br><br>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra lorem
+                                    eget massa ultricies, eget cursus magna pulvinar. Sed vitae sem in odio sagittis
+                                    accumsan sit amet vitae ligula. Vivamus venenatis justo vel libero convallis, nec
+                                    bibendum nisl maximus. Curabitur in massa vitae augue faucibus tristique.
+                                </p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <a href="https://www.example.com" target="_blank" class="modal-link">Acessar Reels</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODAL 3 -->
+                    <div class="modal" id="modal3">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="C:\Programas\PORTFOLIO\imagens\2151495292.jpg" alt="Imagem do Modal3"
+                                class="modal-img">
+                            <h2 class="modal-title">Título do Modal</h2>
+                            <div class="modal-body">
+                                <p class="modal-desc">
+                                    Este é um exemplo de descrição dentro do modal.
+                                    O conteúdo pode ter qualquer tamanho — pequeno ou grande — e o modal se ajustará
+                                    automaticamente.
+                                    Se o texto for muito longo, uma rolagem interna aparecerá, sem mover o botão de
+                                    link.
+                                    <br><br>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra lorem
+                                    eget massa ultricies, eget cursus magna pulvinar. Sed vitae sem in odio sagittis
+                                    accumsan sit amet vitae ligula. Vivamus venenatis justo vel libero convallis, nec
+                                    bibendum nisl maximus. Curabitur in massa vitae augue faucibus tristique.
+                                </p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <a href="https://www.example.com" target="_blank" class="modal-link">Acessar Reels</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODAL 4 -->
+                    <div class="modal" id="modal4">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="C:\Programas\PORTFOLIO\imagens\2151495292.jpg" alt="Imagem do Modal4"
+                                class="modal-img">
+                            <h2 class="modal-title">Título do Modal</h2>
+                            <div class="modal-body">
+                                <p class="modal-desc">
+                                    Este é um exemplo de descrição dentro do modal.
+                                    O conteúdo pode ter qualquer tamanho — pequeno ou grande — e o modal se ajustará
+                                    automaticamente.
+                                    Se o texto for muito longo, uma rolagem interna aparecerá, sem mover o botão de
+                                    link.
+                                    <br><br>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra lorem
+                                    eget massa ultricies, eget cursus magna pulvinar. Sed vitae sem in odio sagittis
+                                    accumsan sit amet vitae ligula. Vivamus venenatis justo vel libero convallis, nec
+                                    bibendum nisl maximus. Curabitur in massa vitae augue faucibus tristique.
+                                </p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <a href="https://www.example.com" target="_blank" class="modal-link">Acessar Reels</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODAL 5 -->
+                    <div class="modal" id="modal5">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="C:\Programas\PORTFOLIO\imagens\2151495292.jpg" alt="Imagem do Modal5"
+                                class="modal-img">
+                            <h2 class="modal-title">Título do Modal</h2>
+                            <div class="modal-body">
+                                <p class="modal-desc">
+                                    Este é um exemplo de descrição dentro do modal.
+                                    O conteúdo pode ter qualquer tamanho — pequeno ou grande — e o modal se ajustará
+                                    automaticamente.
+                                    Se o texto for muito longo, uma rolagem interna aparecerá, sem mover o botão de
+                                    link.
+                                    <br><br>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra lorem
+                                    eget massa ultricies, eget cursus magna pulvinar. Sed vitae sem in odio sagittis
+                                    accumsan sit amet vitae ligula. Vivamus venenatis justo vel libero convallis, nec
+                                    bibendum nisl maximus. Curabitur in massa vitae augue faucibus tristique.
+                                </p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <a href="https://www.example.com" target="_blank" class="modal-link">Acessar Reels</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODAL 6 -->
+                    <div class="modal" id="modal6">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="C:\Programas\PORTFOLIO\imagens\2151495292.jpg" alt="Imagem do Modal6"
+                                class="modal-img">
+                            <h2 class="modal-title">Título do Modal</h2>
+                            <div class="modal-body">
+                                <p class="modal-desc">
+                                    Este é um exemplo de descrição dentro do modal.
+                                    O conteúdo pode ter qualquer tamanho — pequeno ou grande — e o modal se ajustará
+                                    automaticamente.
+                                    Se o texto for muito longo, uma rolagem interna aparecerá, sem mover o botão de
+                                    link.
+                                    <br><br>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra lorem
+                                    eget massa ultricies, eget cursus magna pulvinar. Sed vitae sem in odio sagittis
+                                    accumsan sit amet vitae ligula. Vivamus venenatis justo vel libero convallis, nec
+                                    bibendum nisl maximus. Curabitur in massa vitae augue faucibus tristique.
+                                </p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <a href="https://www.example.com" target="_blank" class="modal-link">Acessar Reels</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODAL 7 -->
+                    <div class="modal" id="modal7">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="C:\Programas\PORTFOLIO\imagens\2151495292.jpg" alt="Imagem do Modal7"
+                                class="modal-img">
+                            <h2 class="modal-title">Título do Modal</h2>
+                            <div class="modal-body">
+                                <p class="modal-desc">
+                                    Este é um exemplo de descrição dentro do modal.
+                                    O conteúdo pode ter qualquer tamanho — pequeno ou grande — e o modal se ajustará
+                                    automaticamente.
+                                    Se o texto for muito longo, uma rolagem interna aparecerá, sem mover o botão de
+                                    link.
+                                    <br><br>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra lorem
+                                    eget massa ultricies, eget cursus magna pulvinar. Sed vitae sem in odio sagittis
+                                    accumsan sit amet vitae ligula. Vivamus venenatis justo vel libero convallis, nec
+                                    bibendum nisl maximus. Curabitur in massa vitae augue faucibus tristique.
+                                </p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <a href="https://www.example.com" target="_blank" class="modal-link">Acessar Reels</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODAL 8 -->
+                    <div class="modal" id="modal8">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="C:\Programas\PORTFOLIO\imagens\2151495292.jpg" alt="Imagem do Modal8"
+                                class="modal-img">
+                            <h2 class="modal-title">Título do Modal</h2>
+                            <div class="modal-body">
+                                <p class="modal-desc">
+                                    Este é um exemplo de descrição dentro do modal.
+                                    O conteúdo pode ter qualquer tamanho — pequeno ou grande — e o modal se ajustará
+                                    automaticamente.
+                                    Se o texto for muito longo, uma rolagem interna aparecerá, sem mover o botão de
+                                    link.
+                                    <br><br>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra lorem
+                                    eget massa ultricies, eget cursus magna pulvinar. Sed vitae sem in odio sagittis
+                                    accumsan sit amet vitae ligula. Vivamus venenatis justo vel libero convallis, nec
+                                    bibendum nisl maximus. Curabitur in massa vitae augue faucibus tristique.
+                                </p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <a href="https://www.example.com" target="_blank" class="modal-link">Acessar Reels</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODAL 9 -->
+                    <div class="modal" id="modal9">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="C:\Programas\PORTFOLIO\imagens\2151495292.jpg" alt="Imagem do Modal9"
+                                class="modal-img">
+                            <h2 class="modal-title">Título do Modal</h2>
+                            <div class="modal-body">
+                                <p class="modal-desc">
+                                    Este é um exemplo de descrição dentro do modal.
+                                    O conteúdo pode ter qualquer tamanho — pequeno ou grande — e o modal se ajustará
+                                    automaticamente.
+                                    Se o texto for muito longo, uma rolagem interna aparecerá, sem mover o botão de
+                                    link.
+                                    <br><br>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra lorem
+                                    eget massa ultricies, eget cursus magna pulvinar. Sed vitae sem in odio sagittis
+                                    accumsan sit amet vitae ligula. Vivamus venenatis justo vel libero convallis, nec
+                                    bibendum nisl maximus. Curabitur in massa vitae augue faucibus tristique.
+                                </p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <a href="https://www.example.com" target="_blank" class="modal-link">Acessar Reels</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- BOTÃO -->
+                <div class="btn-mostrar-modais">
+                    <button id="btn-mostrar-modais">Mostrar mais</button>
+                </div>
+
+                <!-- DIV INTERFACE GRID -->
+            </div>
+
+            <!-- SECTION GRID -->
+        </section>
+
+
+
+        <!-- SECTION PORTFOLIO -->
+
+        <!-- <section class="portfolio" id="portfolio">
+
+            <div class="interface">
+
+                <h1 class="titulo-section">Reels<span>em Destaque</span></h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id delectus, maiores iusto odio autem nemo,
+                    laborum illo unde deserunt soluta, velit cumque labore quidem. Accusamus aspernatur natus suscipit
+                    facilis ducimus.</p>
+
+                <article class="portfolio-container" id="portfolio-container">
+
+                    <a href="https://www.instagram.com/reel/DPPPCY-lIvk/?utm_source=ig_web_copy_link&igsh=MTBibDg5MDg0dHIzcg=="
+                        target="_blank">
+                        <div class="portfolio-box projeto1">
+                            <div class="infor-portfolio">Reels 01</div>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <div class="portfolio-box projeto2">
+                            <div class="infor-portfolio">Reels 02</div>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <div class="portfolio-box projeto3">
+                            <div class="infor-portfolio">Reels 03</div>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <div class="portfolio-box projeto4">
+                            <div class="infor-portfolio">Reels 04</div>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <div class="portfolio-box projeto5 oculto">
+                            <div class="infor-portfolio">Reels 05</div>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <div class="portfolio-box projeto6 oculto">
+                            <div class="infor-portfolio">Reels 06</div>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <div class="portfolio-box projeto7 oculto">
+                            <div class="infor-portfolio">Reels 07</div>
+                        </div>
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <div class="portfolio-box projeto8 oculto">
+                            <div class="infor-portfolio">Reels 08</div>
+                        </div>
+                    </a>
+
+
+
+                </article>
+
+                <div class="btn-mostrar-mais">
+                    <button id="btn_mostrar_mais">Mostrar mais</button>
+                </div>
+
+
+            </div>
+
+        </section> -->
+
+
+
+
+        <!-- SECTION SOBRE MIM -->
+
+        <section class="sobre-mim" id="sobre-mim">
+
+            <div class="interface">
+
+
+                <div class="txt-sobre">
+                    <h1 class="titulo-section">Sobre<span> Mim</span></h1>
+                    <p>
+
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit cum sequi autem numquam natus?
+                        Incidunt, a dolore. Pariatur possimus culpa iste nobis, voluptates dolore sequi magnam velit,
+                        quod atque dolorem.
+                    </p>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, nulla. Quis odit eaque ratione
+                        ea doloremque amet laudantium, maxime, beatae magni optio non ab saepe! Impedit perferendis ad
+                        error aliquid.
+                    </p>
+
+                    <div class="btn-redes">
+                        <a href="#"><button><i class="bi bi-instagram"></i></button></a>
+                        <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
+                    </div>
+
+                </div>
+                <div class="img-sobre">
+                    <img src="C:\Programas\PORTFOLIO\imagens\header_leticia.webp" alt="Foto 2">
+                </div>
+            </div>
+        </section>
+
+        <!-- CALENDÁRIO -->
+
+        <section class="calendario" id="calendario">
+            <div class="container-principal">
+
+                <section class="calendario" id="calendario">
+                    <div class="interface">
+                        <h1 class="titulo-section">Calendário de<span> Eventos</span></h1>
+
+                        <div class="calendar-container">
+                            <div class="calendar">
+                                <div class="calendar-header">
+                                    <button id="prev">&#10094;</button>
+                                    <h2 id="month-year"></h2>
+                                    <button id="next">&#10095;</button>
+                                </div>
+                                <div class="calendar-body">
+                                    <div class="week-days">
+                                        <div>Dom</div>
+                                        <div>Seg</div>
+                                        <div>Ter</div>
+                                        <div>Qua</div>
+                                        <div>Qui</div>
+                                        <div>Sex</div>
+                                        <div>Sáb</div>
+                                    </div>
+                                    <div class="days" id="days">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div id="eventos-bloco" class="eventos-painel">
+                    <div class="interface">
+                        <button id="fechar-eventos-btn" class="fechar-btn">X</button>
+                        <h2 id="eventos-titulo">Eventos</h2>
+
+                        <div class="dia-selecionado-info">
+                            <h3>Dia Selecionado: <strong id="dia-selecionado-texto">Nenhum</strong></h3>
+                        </div>
+
+                        <div class="criar-evento-form">
+                            <textarea id="evento-texto" placeholder="Descreva o evento..."></textarea>
+                            <button id="adicionar-evento-btn" disabled>Adicionar Evento</button>
+                        </div>
+
+                        <hr>
+
+                        <h4>Eventos do Dia</h4>
+                        <ul id="lista-eventos">
+                            <li class="evento-placeholder">Selecione um dia para começar.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- SECTION CONTATO-->
+
+        <section class="contato" id="contato">
+
+            <div class="interface">
+
+                <div class="txt-contato">
+                    <h1 class="titulo-section">Entre em<span> contato</span></h1>
+                    <h2 class="sub-titulo">Formulário de Contato</h2>
+                    <p><i class="bi bi-envelope-at"></i> contato@gmail.com</p>
+                    <p><i class="bi bi-whatsapp"></i> (00) 0 0000-0000</p>
+
+                </div>
+
+                <form action="#">
+                    <input type="text" name="#" id="nome" placeholder="Seu nome completo">
+                    <input type="email" name="#" id="email" placeholder="Seu e-mail">
+                    <div class="tel">
+                        <input type="tel" name="#" id="telefone" placeholder="Seu Whatsapp">
+                    </div>
+                    <textarea name="#" id="mensagem" placeholder="Descreva um pouco sobre o asssunto"></textarea>
+
+                    <div class="btn-enviar">
+                        <input type="submit" value="Enviar">
+                    </div>
+
+                </form>
+
+            </div>
+
+
+        </section>
+
+
+
+    </main>
+
+    <footer>
+        <div class="interface">
+
+            <div class="logo-footer">
+                <img src="imagens/leticia_logo (2).png" alt="logo-footer">
+                <p>Todos os direitos reservados</p>
+            </div>
+
+            <div class="btn-redes">
+                <a href="#"><button><i class="bi bi-instagram"></i></button></a>
+                <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
+                <a href="#"><button><i class="bi bi-whatsapp"></i></button></a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="java.js"></script>
+    <script src="js/menu-mobile.js"></script>
+
+
+</body>
+
+</html>
